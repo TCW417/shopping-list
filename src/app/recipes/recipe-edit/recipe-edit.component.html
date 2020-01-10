@@ -1,0 +1,33 @@
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <h1>{{ editing ? 'EDITING ' : 'NEW RECIPE '}}{{ editing? recipe.name : 'name' }}</h1>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <img [src]="editing ? recipe.imagePath : ''" [alt]="editing ? recipe.name : ''" class="img-responsive" style="max-height: 300px">
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <ul class="list-group" *ngIf="editing">
+      <li *ngFor="let i of recipe.ingredients" class="list-group-item">
+        {{ i.name }}: {{ i.amount }}
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <p>{{ editing ? recipe.description : 'description' }}</p>
+  </div>
+</div>
+<div class="row">
+  <div class="col-xs-12">
+    <div class="btn-toolbar" appDropdown>
+      <button class="btn btn-primary" style="margin-top: 10px" (click)="onSaveRecipe()">Save</button>
+      <button class="btn btn-info" style="margin-top: 10px" routerLink="/recipes/{{ editing ? recipe.id : '' }}">Cancel</button>
+    </div>
+  </div>
+</div>

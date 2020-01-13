@@ -18,10 +18,4 @@ export class RecipeItemComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  onRecipeSelected(id: number) {
-    // console.log('item emitting', JSON.stringify(this.recipe, null, 2));
-    // this.recipeService.recipeSelected.emit(this.recipe);
-    this.router.navigate(['/recipes', 'detail', id]);
-  }
 }

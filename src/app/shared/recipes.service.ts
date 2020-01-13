@@ -1,11 +1,11 @@
-import {EventEmitter, Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Recipe} from '../recipes/recipe.model';
 import {Ingredient} from './ingredient.model';
 import {ShoppingListService} from './shopping-list.service';
 
 @Injectable()
 export class RecipeService {
-  recipeSelected = new EventEmitter<Recipe>();
+
   nextId = 0;
 
   private recipes = [
@@ -34,7 +34,7 @@ export class RecipeService {
   }
 
   removeRecipe(recipe: Recipe) {
-    const newR = this.recipes.filter(r => r.name != recipe.name);
+    const newR = this.recipes.filter(r => r.name.toLowerCase() !== recipe.name.toLowerCase());
     this.recipes = newR;
   }
 
